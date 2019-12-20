@@ -1,0 +1,13 @@
+get the second element from the string argv[]
+if argc not equals to 2 or argv[1] is not a positive integer
+  output "Usage: ./caesar key"
+  exit with status 0
+
+get the string we need to cipher from the command prompt
+assign it the `cipher` variable
+declare key: cast string to integer
+loop through each character of the `plain`
+  if a character in a lowercase or uppercase letter
+    shift character with the key, wrap to aA if exceeds over zZ
+    assign result to cipher[index]
+output the result
