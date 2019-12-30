@@ -1,0 +1,15 @@
+verify that program was run with correct argument
+split the hash to salt and encrypted parts
+create a pointer to a string which contains all the characters
+get amount of characters
+get a salt
+for each value from 1 to max_password_length
+    enumerate all possible matches, recursively invoking a function
+    in the end case(last character incremented)
+        create a hash from a guess
+        compare this hash with a given one
+        if a match is found
+            print a result out
+            return true from a function
+continue until a match will be found
+if match was not found print out "No match was found"
