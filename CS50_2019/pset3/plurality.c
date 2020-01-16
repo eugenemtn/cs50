@@ -1,3 +1,5 @@
+// https://cs50.harvard.edu/x/2020/psets/3/plurality/
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
@@ -97,4 +99,3 @@ void print_winner(void)
     }
     return;
 }
-
