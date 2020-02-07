@@ -1,0 +1,24 @@
+.em {
+    font-weight: 600;
+}
+
+main {
+    display: flex;
+    margin: 30px;
+}
+
+aside {
+    width: 300px;
+}
+aside a {
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+#content {
+    word-wrap: break-word;
+}

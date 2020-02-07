@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stocks in potfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                {% for key in cols %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks_owned %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.company_name }}</td>
+                <td>{{ stock.stocks }}</td>
+                <td>{{ stock.current_price|usd }}</td>
+                <td>{{ stock.total_price|usd }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{ cash|usd }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ total|usd }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <form id="add-cash" action="/add-cash", method="post">
+        <div class="form-group">
+            <input id="cash" class="form-control" name="cash" placeholder="Cash" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Add Cash</button>
+    </form>
+{% endblock %}

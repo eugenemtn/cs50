@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Stocks
+{% endblock %}
+
+{% block main %}
+    <form id="sell-form" action="/sell", method="post">
+        <div class="form-group">
+            <select name="company" id="company" placeholder="select a symbol" class="form-control">
+                <option disabled selected value>*Symbol</option>
+                {% for stock in stocks %}
+                <option>{{ stock.symbol }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input id="shares" class="form-control" name="shares" placeholder="*Shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+    <script>
+        form = document.getElementById("sell-form");
+        company = document.getElementById("company");
+        shares = document.getElementById("shares");
+        form.addEventListener("submit", onFormSubmit)
+
+        function onFormSubmit(event) {
+            if (!company.value || !shares.value) {
+                event.preventDefault();
+            }
+            if (!company.value) {
+                alert("Please select a company to sell stocks");
+                return;
+            }
+            if (!shares.value) {
+                alert("Shares field is required");
+                return;
+            }
+        }
+    </script>
+{% endblock %}

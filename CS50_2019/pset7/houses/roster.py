@@ -8,7 +8,8 @@ if len(sys.argv) != 2:
 
 def main():
     db = SQL("sqlite:///students.db")
-    selection = db.execute(f'SELECT first, middle, last, birth FROM students WHERE house="{sys.argv[1]}" ORDER BY last, first');
+    selection = \
+        db.execute(f'SELECT first, middle, last, birth FROM students WHERE house="{sys.argv[1]}" ORDER BY last, first')
 
     for student in selection:
         print(f"{student['first']}", end=" ")
